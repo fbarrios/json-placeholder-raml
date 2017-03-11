@@ -1,0 +1,108 @@
+#%RAML 1.0
+title: JSON Placeholder
+baseUri: https://jsonplaceholder.typicode.com/
+version: 0.1
+mediaType: application/json
+
+types:
+  Post:
+    type: object
+    properties:
+      userId: number
+      id: number
+      title: string
+      body: string
+
+  Comment:
+    type: object
+    properties:
+      id: number
+      postId: number
+      name: string
+      email: string
+      body: string
+
+/posts:
+  get:
+    displayName: Get all posts.
+    responses:
+      200:
+        body:
+          type: Post[]
+
+  post:
+    displayName: Create post.
+    body:
+      type: Post
+    responses:
+      200:
+        body:
+          type: Post
+
+  /{postId}:
+    uriParameters:
+      postId: number
+
+    get:
+      displayName: Get single post by id.
+      responses:
+        200:
+          body:
+            type: Post
+
+    put:
+      displayName: Update post.
+      body:
+        type: Post
+      responses:
+        200:
+          body:
+            type: Post
+
+    delete:
+      displayName: Remove post.
+      body:
+        type: !!null
+      responses:
+        200:
+          body:
+            type: !!null
+
+    /comments:
+      get:
+        displayName: Get all comment of a given post.
+        responses:
+          200:
+            body:
+              type: Comment[]
+
+      post:
+        displayName: Create comment.
+        body:
+          type: Comment
+        responses:
+          200:
+            body:
+              type: Comment
+
+      /{commentId}:
+        uriParameters:
+          commentId: number
+
+        put:
+          displayName: Update comment.
+          body:
+            type: Post
+          responses:
+            200:
+              body:
+                type: Post
+
+        delete:
+          displayName: Remove comment.
+          body:
+            type: !!null
+          responses:
+            200:
+              body:
+                type: !!null
