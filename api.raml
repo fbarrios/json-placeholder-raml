@@ -1,6 +1,6 @@
 #%RAML 1.0
 title: JSON Placeholder
-baseUri: https://jsonplaceholder.typicode.com/
+baseUri: https://jsonplaceholder.typicode.com
 version: 0.1
 mediaType: application/json
 
@@ -8,16 +8,16 @@ types:
   Post:
     type: object
     properties:
-      userId: number
-      id: number
+      userId: integer
+      id: integer
       title: string
       body: string
 
   Comment:
     type: object
     properties:
-      id: number
-      postId: number
+      id: integer
+      postId: integer
       name: string
       email: string
       body: string
@@ -41,7 +41,7 @@ types:
 
   /{postId}:
     uriParameters:
-      postId: number
+      postId: integer
 
     get:
       displayName: Get single post by id.
@@ -87,7 +87,7 @@ types:
 
       /{commentId}:
         uriParameters:
-          commentId: number
+          commentId: integer
 
         put:
           displayName: Update comment.
