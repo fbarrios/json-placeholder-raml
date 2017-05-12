@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "body": {
+            "id": "/properties/body",
+            "type": "string"
+        },
+        "email": {
+            "id": "/properties/email",
+            "type": "string"
+        },
+        "id": {
+            "id": "/properties/id",
+            "type": "integer"
+        },
+        "name": {
+            "id": "/properties/name",
+            "type": "string"
+        },
+        "postId": {
+            "id": "/properties/postId",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

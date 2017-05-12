@@ -1,34 +1,31 @@
 #%RAML 1.0
-title: JSON Placeholder
+title: Sample API
 baseUri: https://jsonplaceholder.typicode.com
 version: 0.1
 mediaType: application/json
 
 types:
   Post:
-    type: object
-    properties:
-      userId: integer
-      id: integer
-      title: string
-      body: string
+    schema: !include schemas/post.json
+
+  PostList:
+    schema: !include schemas/postList.json
 
   Comment:
-    type: object
-    properties:
-      id: integer
-      postId: integer
-      name: string
-      email: string
-      body: string
+    schema: !include schemas/comment.json
+
+  CommentList:
+    schema: !include schemas/commentList.json
+
 
 /posts:
   get:
-    displayName: Get all posts.
+    displayName: Get posts
     responses:
       200:
         body:
-          type: Post[]
+          application/json:
+            type: PostList
 
   post:
     displayName: Create post.
@@ -74,7 +71,7 @@ types:
         responses:
           200:
             body:
-              type: Comment[]
+              type: CommentList
 
       post:
         displayName: Create comment.
