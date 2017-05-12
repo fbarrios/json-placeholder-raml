@@ -17,9 +17,13 @@ types:
   CommentList:
     schema: !include schemas/commentList.json
 
+uses:
+  rest-connect: https://gist.githubusercontent.com/fbarrios/2fbb22633dbb8c579e134197d0906d26/raw/71189ecd356266060cbe3e0f6f9673f8192617a7/rest-connect.raml
+
 
 /posts:
   get:
+    (rest-connect.ignored): Ignored for now.
     displayName: Get posts
     responses:
       200:
@@ -67,6 +71,7 @@ types:
 
     /comments:
       get:
+        (rest-connect.ignored): Ignored for now.
         displayName: Get all comments for a given post.
         responses:
           200:
